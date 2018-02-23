@@ -280,7 +280,7 @@ if __name__ == '__main__':
         # which will be the basis for the algorithm to "paint".
         
         #input_image = generate_noise_image(content_image)
-        input_image=load_image('output/430.png') 
+        input_image=load_image('output/480.png') 
         sess.run(tf.global_variables_initializer())
         # Construct content_loss using content_image.
         sess.run(model['input'].assign(content_image))
@@ -310,13 +310,13 @@ if __name__ == '__main__':
             if it%10 == 0 and it>0:
                 # Print every 100 iteration.
                 mixed_image = sess.run(model['input'])
-                print('Iteration %d' % (it+430))
+                print('Iteration %d' % (it+480))
                 print('sum : ', sess.run(tf.reduce_sum(mixed_image)))
                 print('cost: ', sess.run(total_loss))
 
                 if not os.path.exists(OUTPUT_DIR):
                     os.mkdir(OUTPUT_DIR)
 
-                filename = 'output/%d.png' % (it+430)
+                filename = 'output/%d.png' % (it+480)
                 save_image(filename, mixed_image)
 
